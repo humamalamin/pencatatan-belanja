@@ -28,12 +28,9 @@ class EditExpense extends EditRecord
             $ocr = new OCRService();
             $text = $ocr->extractTextFromImage($path);
 
-            $ai = new AIParserService();
-            $parsed = $ai->parseWithAI($text);
-
             $record->note = $text;
-            $record->parsed_data = $parsed;
             $record->save();
+            dispatch(new \App\Jobs\AiParserJob($record));
         }
     }
 }
