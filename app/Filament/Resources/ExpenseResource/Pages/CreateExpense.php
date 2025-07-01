@@ -27,7 +27,7 @@ class CreateExpense extends CreateRecord
                 $record->note = $text;
                 $record->save();
 
-                dispatch(new \App\Jobs\AIParserJob($record));
+                dispatch(new \App\Jobs\AiParserJob($record));
             }
         } catch (\Throwable $th) {
             throw $th;
