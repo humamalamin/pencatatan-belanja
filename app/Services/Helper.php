@@ -30,7 +30,7 @@ class Helper
 
     public function extractSpecialFieldsAndCleanItems(array $items): array
     {
-        $unwantedNames = ['subtotal', 'total', 'vat', 'kembalian'];
+        $unwantedNames = ['subtotal', 'total', 'vat', 'kembalian', 'ppn', 'total item', 'total disc', 'total belanja', 'tunai'];
 
         $cleanedItems = [];
         $extractedFields = [];
